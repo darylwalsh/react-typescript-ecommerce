@@ -1,24 +1,24 @@
-import * as React from "react";
-import { NavLink, RouteComponentProps, withRouter } from "react-router-dom";
-import "url-search-params-polyfill";
-import logo from "./logo.svg";
+import * as React from 'react'
+import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom'
+import 'url-search-params-polyfill'
+import logo from './logo.svg'
 
 const Header: React.SFC<RouteComponentProps> = props => {
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState('')
   React.useEffect(() => {
-    const searchParams = new URLSearchParams(props.location.search);
-    setSearch(searchParams.get("search") || "");
-  }, []);
+    const searchParams = new URLSearchParams(props.location.search)
+    setSearch(searchParams.get('search') || '')
+  }, [])
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.currentTarget.value);
-  };
+    setSearch(e.currentTarget.value)
+  }
 
   const handleSearchKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      props.history.push(`/products?search=${search}`);
+    if (e.key === 'Enter') {
+      props.history.push(`/products?search=${search}`)
     }
-  };
+  }
 
   return (
     <header className="header">
@@ -37,20 +37,24 @@ const Header: React.SFC<RouteComponentProps> = props => {
         <NavLink
           to="/products"
           className="header-link"
-          activeClassName="header-link-active"
-        >
+          activeClassName="header-link-active">
           Products
+        </NavLink>
+        <NavLink
+          to="/contactus"
+          className="header-link"
+          activeClassName="header-link-active">
+          Contact Us
         </NavLink>
         <NavLink
           to="/admin"
           className="header-link"
-          activeClassName="header-link-active"
-        >
+          activeClassName="header-link-active">
           Admin
         </NavLink>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default withRouter(Header);
+export default withRouter(Header)
