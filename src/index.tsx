@@ -6,6 +6,11 @@ import { Provider } from 'react-redux'
 import { Store } from 'redux'
 import configureStore from './Store'
 import { IApplicationState } from './Store'
+import { Provider } from 'react-redux'
+
+import { Store } from 'redux'
+import configureStore from './Store'
+import { IApplicationState } from './Store'
 
 interface IProps {
   store: Store<IApplicationState>
