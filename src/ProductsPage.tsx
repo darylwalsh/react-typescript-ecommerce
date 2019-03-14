@@ -1,12 +1,15 @@
-import * as React from "react";
-import { RouteComponentProps } from "react-router-dom";
-import { IProduct, products } from "./ProductsData";
-import { Link } from "react-router-dom";
-import "url-search-params-polyfill";
+import * as React from 'react'
+import { RouteComponentProps } from 'react-router-dom'
+import { IProduct, products } from './ProductsData'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { IApplicationState } from './Store'
+import { getProducts } from './ProductsActions'
+import 'url-search-params-polyfill'
 
 interface IState {
-  products: IProduct[];
-  search: string;
+  products: IProduct[]
+  search: string
 }
 
 class ProductsPage extends React.Component<RouteComponentProps, IState> {
@@ -14,24 +17,24 @@ class ProductsPage extends React.Component<RouteComponentProps, IState> {
     props: RouteComponentProps,
     state: IState
   ) {
-    const searchParams = new URLSearchParams(props.location.search);
-    const search = searchParams.get("search") || "";
+    const searchParams = new URLSearchParams(props.location.search)
+    const search = searchParams.get('search') || ''
     return {
       products: state.products,
       search
-    };
+    }
   }
 
   public constructor(props: RouteComponentProps) {
-    super(props);
+    super(props)
     this.state = {
       products: [],
-      search: ""
-    };
+      search: ''
+    }
   }
 
   public componentDidMount() {
-    this.setState({ products });
+    this.setState({ products })
   }
 
   public render() {
@@ -53,15 +56,15 @@ class ProductsPage extends React.Component<RouteComponentProps, IState> {
                 <li key={product.id} className="product-list-item">
                   <Link to={`/products/${product.id}`}>{product.name}</Link>
                 </li>
-              );
+              )
             } else {
-              return null;
+              return null
             }
           })}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default ProductsPage;
+export default ProductsPage
