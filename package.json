@@ -1,6 +1,6 @@
 {
   "name": "reactshop",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.15",
@@ -27,7 +27,7 @@
     "styleguide:build": "...",
     "prettier:check": "prettier --check 'src/**/*.{js,mdx}'",
     "validate": "run-s test lint prettier:check",
-    "prerelease": "git checkout master && git pull origin master && npm i && run-s validate styleguide:build && git-authors-cli && git add .",
+    "prerelease": "git-authors-cli && git add .",
     "release": "standard-version -a",
     "postrelease": "run-s release:*",
     "release:tags": "git push --follow-tags origin master",
@@ -77,5 +77,8 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "contributors": [
+    "Daryl <bfc@freestabby.com>"
+  ]
 }
