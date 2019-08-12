@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 const LoginPage: React.SFC = () => {
   return (
@@ -6,7 +6,7 @@ const LoginPage: React.SFC = () => {
       <h1>Login</h1>
       <p>You need to login ...</p>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage

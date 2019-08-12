@@ -1,5 +1,5 @@
-import * as React from "react";
-import { NavLink, Route, RouteComponentProps } from "react-router-dom";
+import * as React from 'react'
+import { NavLink, Route, RouteComponentProps } from 'react-router-dom'
 
 const AdminPage: React.SFC = () => {
   return (
@@ -20,23 +20,23 @@ const AdminPage: React.SFC = () => {
       <Route path="/admin/users" component={AdminUsers} />
       <Route path="/admin/products" component={AdminProducts} />
     </div>
-  );
-};
+  )
+}
 
 const AdminProducts: React.SFC = () => {
-  return <div>Some options to administer products</div>;
-};
+  return <div>Some options to administer products</div>
+}
 
 interface IUser {
-  id: number;
-  name: string;
-  isAdmin: boolean;
+  id: number
+  name: string
+  isAdmin: boolean
 }
 const adminUsersData: IUser[] = [
-  { id: 1, name: "Fred", isAdmin: true },
-  { id: 2, name: "Bob", isAdmin: false },
-  { id: 3, name: "Jane", isAdmin: true }
-];
+  { id: 1, name: 'Fred', isAdmin: true },
+  { id: 2, name: 'Bob', isAdmin: false },
+  { id: 3, name: 'Jane', isAdmin: true },
+]
 const AdminUsers: React.SFC = () => {
   return (
     <div>
@@ -54,16 +54,16 @@ const AdminUsers: React.SFC = () => {
       </ul>
       <Route path="/admin/users/:id" component={AdminUser} />
     </div>
-  );
-};
+  )
+}
 
 const AdminUser: React.SFC<RouteComponentProps<{ id: string }>> = props => {
-  let user: IUser;
+  let user: IUser
   if (props.match.params.id) {
-    const id: number = parseInt(props.match.params.id, 10);
-    user = adminUsersData.filter(u => u.id === id)[0];
+    const id: number = parseInt(props.match.params.id, 10)
+    user = adminUsersData.filter(u => u.id === id)[0]
   } else {
-    return null;
+    return null
   }
   return (
     <div>
@@ -76,6 +76,6 @@ const AdminUser: React.SFC<RouteComponentProps<{ id: string }>> = props => {
         <span>{user.isAdmin.toString()}</span>
       </div>
     </div>
-  );
-};
-export default AdminPage;
+  )
+}
+export default AdminPage

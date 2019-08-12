@@ -1,24 +1,24 @@
-import * as React from "react";
+import * as React from 'react'
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   RouteComponentProps,
-  Switch
-} from "react-router-dom";
+  Switch,
+} from 'react-router-dom'
 
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import AdminPage from "./AdminPage";
-import ContactUsPage from "./ContactUsPage";
-import Header from "./Header";
-import LoginPage from "./LoginPage";
-import NotFoundPage from "./NotFoundPage";
-import ProductPage from "./ProductPage";
-import ProductsPage from "./ProductsPage";
+import AdminPage from './AdminPage'
+import ContactUsPage from './ContactUsPage'
+import Header from './Header'
+import LoginPage from './LoginPage'
+import NotFoundPage from './NotFoundPage'
+import ProductPage from './ProductPage'
+import ProductsPage from './ProductsPage'
 
 interface IState {
-  loggedIn: boolean;
+  loggedIn: boolean
 }
 
 const RoutesWrap: React.SFC = () => {
@@ -26,15 +26,15 @@ const RoutesWrap: React.SFC = () => {
     <Router>
       <Route component={Routes} />
     </Router>
-  );
-};
+  )
+}
 
 class Routes extends React.Component<RouteComponentProps, IState> {
   public constructor(props: RouteComponentProps) {
-    super(props);
+    super(props)
     this.state = {
-      loggedIn: true
-    };
+      loggedIn: true,
+    }
   }
   public render() {
     return (
@@ -60,8 +60,8 @@ class Routes extends React.Component<RouteComponentProps, IState> {
           </CSSTransition>
         </TransitionGroup>
       </div>
-    );
+    )
   }
 }
 
-export default RoutesWrap;
+export default RoutesWrap

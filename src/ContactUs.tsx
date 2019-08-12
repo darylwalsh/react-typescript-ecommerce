@@ -1,22 +1,22 @@
-import * as React from "react";
-import { Form, ISubmitResult, IValues, minLength, required } from "./Form";
+import * as React from 'react'
+import { Form, ISubmitResult, IValues, minLength, required } from './Form'
 
 interface IProps {
-  onSubmit: (values: IValues) => Promise<ISubmitResult>;
+  onSubmit: (values: IValues) => Promise<ISubmitResult>
 }
 
 const ContactUs: React.SFC<IProps> = props => {
   const handleSubmit = async (values: IValues): Promise<ISubmitResult> => {
-    const result = await props.onSubmit(values);
-    return result;
-  };
+    const result = await props.onSubmit(values)
+    return result
+  }
   return (
     <Form
       onSubmit={handleSubmit}
-      defaultValues={{ name: "", email: "", reason: "Support", notes: "" }}
+      defaultValues={{ name: '', email: '', reason: 'Support', notes: '' }}
       validationRules={{
         email: { validator: required },
-        name: [{ validator: required }, { validator: minLength, arg: 2 }]
+        name: [{ validator: required }, { validator: minLength, arg: 2 }],
       }}
     >
       <Form.Field name="name" label="Your name" />
@@ -25,10 +25,10 @@ const ContactUs: React.SFC<IProps> = props => {
         name="reason"
         label="Reason you need to contact us"
         type="Select"
-        options={["Marketing", "Support", "Feedback", "Jobs", "Other"]}
+        options={['Marketing', 'Support', 'Feedback', 'Jobs', 'Other']}
       />
       <Form.Field name="notes" label="Additional notes" type="TextArea" />
     </Form>
-  );
-};
-export default ContactUs;
+  )
+}
+export default ContactUs

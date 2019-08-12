@@ -1,31 +1,31 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { NavLink, RouteComponentProps, withRouter } from "react-router-dom";
-import "url-search-params-polyfill";
-import BasketSummary from "./BasketSummary";
-import { IApplicationState } from "./Store";
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom'
+import 'url-search-params-polyfill'
+import BasketSummary from './BasketSummary'
+import { IApplicationState } from './Store'
 
-import logo from "./logo.svg";
+import logo from './logo.svg'
 
 interface IState {
-  search: string;
+  search: string
 }
 
 interface IProps extends RouteComponentProps {
-  basketCount: number;
+  basketCount: number
 }
 
 class Header extends React.Component<IProps, IState> {
   public constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
-      search: ""
-    };
+      search: '',
+    }
   }
   public componentDidMount() {
-    const searchParams = new URLSearchParams(this.props.location.search);
-    const search = searchParams.get("search") || "";
-    this.setState({ search });
+    const searchParams = new URLSearchParams(this.props.location.search)
+    const search = searchParams.get('search') || ''
+    this.setState({ search })
   }
   public render() {
     return (
@@ -66,22 +66,22 @@ class Header extends React.Component<IProps, IState> {
           </NavLink>
         </nav>
       </header>
-    );
+    )
   }
   private handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ search: e.target.value });
-  };
+    this.setState({ search: e.target.value })
+  }
   private handleSearchKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      this.props.history.push(`/products?search=${this.state.search}`);
+    if (e.key === 'Enter') {
+      this.props.history.push(`/products?search=${this.state.search}`)
     }
-  };
+  }
 }
 
 const mapStateToProps = (store: IApplicationState) => {
   return {
-    basketCount: store.basket.products.length
-  };
-};
+    basketCount: store.basket.products.length,
+  }
+}
 
-export default connect(mapStateToProps)(withRouter(Header));
+export default connect(mapStateToProps)(withRouter(Header))

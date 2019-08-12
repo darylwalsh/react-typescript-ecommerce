@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react'
 interface IProps {
-  loading: boolean;
+  loading: boolean
 }
 const withLoader = <P extends object>(
   Component: React.ComponentType<P>
@@ -13,5 +13,5 @@ const withLoader = <P extends object>(
     </div>
   ) : (
     <Component {...props} />
-  );
-export default withLoader;
+  )
+export default withLoader

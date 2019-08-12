@@ -1,15 +1,15 @@
-import { Reducer } from "redux";
+import { Reducer } from 'redux'
 import {
   IProductsState,
   ProductsActions,
-  ProductsActionTypes
-} from "./ProductsTypes";
+  ProductsActionTypes,
+} from './ProductsTypes'
 
 const initialProductState: IProductsState = {
   currentProduct: null,
   products: [],
-  productsLoading: false
-};
+  productsLoading: false,
+}
 
 export const productsReducer: Reducer<IProductsState, ProductsActions> = (
   state = initialProductState,
@@ -19,23 +19,23 @@ export const productsReducer: Reducer<IProductsState, ProductsActions> = (
     case ProductsActionTypes.LOADING: {
       return {
         ...state,
-        productsLoading: true
-      };
+        productsLoading: true,
+      }
     }
     case ProductsActionTypes.GETALL: {
       return {
         ...state,
         products: action.products,
-        productsLoading: false
-      };
+        productsLoading: false,
+      }
     }
     case ProductsActionTypes.GETSINGLE: {
       return {
         ...state,
         currentProduct: action.product,
-        productsLoading: false
-      };
+        productsLoading: false,
+      }
     }
   }
-  return state;
-};
+  return state
+}
